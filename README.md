@@ -11,8 +11,8 @@ This document outlines a 10-day development plan for building a self-tracking ap
 
 ## Day 2: Basic UI Layout
 
-- **Design the main interface** with components for tracking daily activities.
-- **Implement navigation** between primary screens using React Navigation.
+- **Design the main interface** with components for tracking daily activities. ✅
+- **Implement navigation** between primary screens using React Navigation.✅
 - **Apply basic styling** to establish a consistent look and feel.
 
 ## Day 3: State Management

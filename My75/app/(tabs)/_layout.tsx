@@ -28,6 +28,7 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen name="dailyGoal" options={{title: 'Today'}}/>
     </Tabs>
   );
 }
