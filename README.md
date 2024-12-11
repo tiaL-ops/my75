@@ -7,7 +7,7 @@ This document outlines a 10-day development plan for building a self-tracking ap
 ## Day 1: Project Setup
 
 - **Initialize the React Native project**.
-- **Configure the development environment** for both iOS and Android platforms.
+- **Configure the development environment** for both iOS and Android platforms. ✅
 
 ## Day 2: Basic UI Layout
 
