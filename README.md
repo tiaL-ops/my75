@@ -13,13 +13,13 @@ This document outlines a 10-day development plan for building a self-tracking ap
 
 - **Design the main interface** with components for tracking daily activities. ✅
 - **Implement navigation** between primary screens using React Navigation.✅
-- **Apply basic styling** to establish a consistent look and feel.
+- **Apply basic styling** to establish a consistent look and feel. ( Let's style at the end :) 
 
-## Day 3: State Management
+## Day 3: State Management 🟡
 
-- **Integrate a state management library** (e.g., Redux or Context API).
-- **Define the global state structure** for tracking user inputs and progress.
-- **Implement actions and reducers** to manage state changes.
+- **Integrate a state management library** (e.g., Redux or Context API).✅ 
+- **Define the global state structure** for tracking user inputs and progress.  🟡 ( Water done)
+- **Implement actions and reducers** to manage state changes. ✅ (For water)
 
 ## Day 4: Local Data Persistence
 

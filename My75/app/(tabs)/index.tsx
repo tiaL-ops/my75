@@ -1,14 +1,20 @@
 import { Text, View, StyleSheet } from 'react-native';
- import { Link } from 'expo-router'; 
+import { Link } from 'expo-router'; 
+import { Provider } from 'react-redux';
+import { store } from '../store';
+//import App from './App';
 
 export default function Index() {
   return (
+    <Provider store= {store}>
     <View style={styles.container}>
       <Text style={styles.text}>Home screen</Text>
       <Link href="/about" style={styles.button}>
         Go to About screen
       </Link>
     </View>
+    </Provider>
+   
   );
 }
 
