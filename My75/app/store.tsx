@@ -8,8 +8,8 @@ import bookReducer from './features/bookSlice';
 export const store = configureStore({
   reducer: {
     water: waterReducer,
-    milesRun: milesReducer,
-    bookRead: bookReducer
+    miles: milesReducer,
+    book: bookReducer
   }
 })
 
