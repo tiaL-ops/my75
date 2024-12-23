@@ -2,7 +2,7 @@
 
 # Self-Tracking 75 Hard Plan
 
-This document outlines a 10-day development plan for building a self-tracking app using React Native. (Based on the tiktok challenge 75 hard a fitness wellbeing challenge :) ) 
+This document outlines a 10-day (non consecutive day)  development plan for building a self-tracking app using React Native. (Based on the tiktok challenge 75 hard a fitness wellbeing challenge :) ) 
 
 ## Day 1: Project Setup
 
@@ -23,7 +23,7 @@ This document outlines a 10-day development plan for building a self-tracking ap
 
 ## Day 4: Local Data Persistence
 
-- **Set up local storage** using AsyncStorage or a similar solution.
+- **Set up local storage** using AsyncStorage 🚨 ( removed) Usind Redux Persit
 - **Implement data saving and retrieval** to maintain state across app restarts.
 - **Test data persistence** to ensure reliability.
 

@@ -1,24 +1,25 @@
+//@refresh reset
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, reset } from '../features/bookSlice';
+import { increment, decrement, reset } from '../features/milesSlice';
 import { RootState } from '../store';
 
-export default function BookTracker() {
+export default function MileTracker() {
   const dispatch = useDispatch();
 
-  // Access the book count from the Redux store
-  const bookCount = useSelector((state: RootState) => state.book.count);
+  // Access the miles count from the Redux store
+  const milesCount = useSelector((state: RootState) => state.miles.count);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Book Tracker</Text>
-      <Text style={styles.count}>Books Page Read: {bookCount}</Text>
+      <Text style={styles.title}>Miles Tracker</Text>
+      <Text style={styles.count}>Miles Run: {milesCount}</Text>
 
      
       <View style={styles.buttons}>
-        <Button title="Add Book Page" onPress={() => dispatch(increment())} />
-        <Button title="Remove book " onPress={() => dispatch(decrement())} />
+        <Button title="Add Miles" onPress={() => dispatch(increment())} />
+        <Button title="Remove Miles" onPress={() => dispatch(decrement())} />
         <Button title="Reset" onPress={() => dispatch(reset())} />
       </View>
     </View>

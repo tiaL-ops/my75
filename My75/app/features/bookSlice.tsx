@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const bookSlice = createSlice({
-    name:'miles',
+    name:'book',
     initialState,
     reducers:{
         increment: (state) => {

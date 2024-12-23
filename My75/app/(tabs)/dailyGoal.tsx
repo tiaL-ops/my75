@@ -1,25 +1,46 @@
+//@refresh reset
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import WaterTracker from './waterChecker';
-import MileTracker from './milesChecker';
-import BookTracker from './bookChecker';
+import { RefreshControl, ScrollView, View, Text, StyleSheet } from 'react-native';
+import WaterTracker from '../checker/waterChecker';
+import MileTracker from '../checker/milesChecker';
+import BookTracker from '../checker/bookChecker';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
+//@refresh reset
 export default function DailyGoals() {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+
   return (
-    <View style={styles.container}>
-        <WaterTracker/>
-        <MileTracker/>
-        <BookTracker/>
-    </View>
-   
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          contentContainerStyle={styles.scrollView}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }>
+          <WaterTracker />
+          <MileTracker />
+          <BookTracker />
+          <Text>Pull down to see RefreshControl indicator</Text>
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+  },
+  scrollView: {
     alignItems: 'center',
-    padding: 16,
+    justifyContent: 'center',
   },
 });
