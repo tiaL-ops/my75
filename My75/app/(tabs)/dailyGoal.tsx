@@ -5,6 +5,7 @@ import WaterTracker from '../checker/waterChecker';
 import MileTracker from '../checker/milesChecker';
 import BookTracker from '../checker/bookChecker';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import CalendarTracker from './CalendarTracker';
 
 //@refresh reset
 export default function DailyGoals() {
@@ -25,9 +26,7 @@ export default function DailyGoals() {
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
-          <WaterTracker />
-          <MileTracker />
-          <BookTracker />
+           <CalendarTracker />
           <Text>Pull down to see RefreshControl indicator</Text>
         </ScrollView>
       </SafeAreaView>
