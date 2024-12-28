@@ -4,7 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement, reset } from '../features/waterSlice';
 import { RootState } from '../store';
 
-export default function WaterTracker() {
+interface Goal {
+  target: number;
+  achieved: number;
+}
+
+interface TrackerProps {
+  goal: Goal;
+}
+
+export default function WaterTracker({ goal }: TrackerProps) {
   const dispatch = useDispatch();
 
   // Access the water count from the Redux store
@@ -13,9 +22,15 @@ export default function WaterTracker() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Water Tracker</Text>
-      <Text style={styles.count}>Glasses of Water: {waterCount}</Text>
 
-     
+      {/* Display Goal Information */}
+      <Text style={styles.text}>Target: {goal?.target || 0} glasses</Text>
+      <Text style={styles.text}>Achieved: {goal?.achieved || 0} glasses</Text>
+
+      {/* Redux-Managed Count */}
+      <Text style={styles.count}>Current Glasses: {waterCount}</Text>
+
+      {/* Buttons for Increment, Decrement, and Reset */}
       <View style={styles.buttons}>
         <Button title="Add Glass" onPress={() => dispatch(increment())} />
         <Button title="Remove Glass" onPress={() => dispatch(decrement())} />
@@ -36,6 +51,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
+  },
+  text: {
+    fontSize: 18,
+    marginBottom: 5,
   },
   count: {
     fontSize: 20,

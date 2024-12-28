@@ -1,54 +1,23 @@
-import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { saveData, getData } from './storage';
+import { configureStore } from '@reduxjs/toolkit'
+import waterReducer from './features/waterSlice';
+import milesReducer from './features/milesSlice';
+import bookReducer from './features/bookSlice';
 
-interface ProgressState {
-  [date: string]: {
-    books: number;
-    water: number;
-    miles: number;
-  };
-}
+// ...
 
-// Load initial state from MMKV
-const loadSavedProgress = (): ProgressState => {
-  return getData('@daily_progress') || {};
-};
-
-// Save state to MMKV
-const saveProgress = (state: ProgressState): void => {
-  saveData('@daily_progress', state);
-};
-
-// Redux Slice
-const progressSlice = createSlice({
-  name: 'progress',
-  initialState: loadSavedProgress(),
-  reducers: {
-    updateProgress: (
-      state,
-      action: PayloadAction<{ date: string; type: 'books' | 'water' | 'miles'; value: number }>
-    ) => {
-      const { date, type, value } = action.payload;
-      if (!state[date]) {
-        state[date] = { books: 0, water: 0, miles: 0 };
-      }
-      state[date][type] += value;
-
-      // Persist changes to MMKV
-      saveProgress(state);
-    },
-  },
-});
-
-export const { updateProgress } = progressSlice.actions;
-
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    progress: progressSlice.reducer,
-  },
-});
+    water: waterReducer,
+    miles: milesReducer,
+    book: bookReducer
+  }
+})
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+// Get the type of our store variable
+export type AppStore = typeof store
 
-export default store;
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<AppStore['getState']>
+
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = AppStore['dispatch']
