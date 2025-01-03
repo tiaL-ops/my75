@@ -13,11 +13,14 @@ This is an app inspired by the **75 Hard challenge** trending on TikTok, where p
 - **Custom Styling**
   - Playful fonts and pastel colors create a delightful user experience.
 
+
 ## Screenshots
 
-![App Screenshot 1](AppPic/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-01-02%20at%2022.58.32.png)
-![App Screenshot 2](AppPic/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-01-02%20at%2022.58.37.png)
-![App Screenshot 3](AppPic/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202025-01-02%20at%2022.58.40.png)
+<div style="text-align: center;">
+  <img src="AppPic/Simulator Screenshot - iPhone 16 Pro - 2025-01-02 at 22.58.32.png" alt="App Screenshot 1" width="300"/>
+  <img src="AppPic/Simulator Screenshot - iPhone 16 Pro - 2025-01-02 at 22.58.37.png" alt="App Screenshot 2" width="300"/>
+  <img src="AppPic/Simulator Screenshot - iPhone 16 Pro - 2025-01-02 at 22.58.40.png" alt="App Screenshot 3" width="300"/>
+</div>
 
 ## How to Use
 
