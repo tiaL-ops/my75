@@ -17,9 +17,9 @@ This is an app inspired by the **75 Hard challenge** trending on TikTok, where p
 ## Screenshots
 
 <div style="text-align: center;">
+  <img src="AppPic/Simulator Screenshot - iPhone 16 Pro - 2025-01-02 at 22.58.40.png" alt="App Screenshot 3" width="300"/>
   <img src="AppPic/Simulator Screenshot - iPhone 16 Pro - 2025-01-02 at 22.58.32.png" alt="App Screenshot 1" width="300"/>
   <img src="AppPic/Simulator Screenshot - iPhone 16 Pro - 2025-01-02 at 22.58.37.png" alt="App Screenshot 2" width="300"/>
-  <img src="AppPic/Simulator Screenshot - iPhone 16 Pro - 2025-01-02 at 22.58.40.png" alt="App Screenshot 3" width="300"/>
 </div>
 
 ## How to Use
