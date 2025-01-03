@@ -1,131 +1,110 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Image, ActivityIndicator } from 'react-native';
-import { Link } from 'expo-router'; 
-import { Provider } from 'react-redux';
-import { store } from '../store';
+import { Text, View, StyleSheet, Image } from 'react-native';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import * as Font from 'expo-font';
 
 export default function Index() {
-  const [fontsLoaded, setFontsLoaded] = useState(false);
+    // State management with type definition
+    const [fontsLoaded, setFontsLoaded] = useState<boolean>(false);
 
-  // Load custom fonts
-  useEffect(() => {
-    const loadFonts = async () => {
-      await Font.loadAsync({
-        'CuteFont': require('../../assets/fonts/Balonku-Regular.ttf'),
-        'SpaceMono': require('../../assets/fonts/SpaceMono-Regular.ttf'),
-      });
-      setFontsLoaded(true);
-    };
-    loadFonts();
-  }, []);
+    // Simulate font loading
+    useEffect(() => {
+        const loadFonts = async () => {
+          await Font.loadAsync({
+            'CuteFont': require('../../assets/fonts/Balonku-Regular.ttf'),
+        });
+        setFontsLoaded(true);
+        };
+        loadFonts();
+    }, []);
 
-  if (!fontsLoaded) {
+    if (!fontsLoaded) {
+        return (
+            <View style={styles.loadingContainer}>
+                <Text style={styles.loadingText}>Loading Awesomeness..</Text>
+            </View>
+        );
+    }
+
     return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FFB6C1" />
-        <Text style={styles.loadingText}>Loading awesomeness...</Text>
-      </View>
+        <SafeAreaProvider>
+            <SafeAreaView style={styles.container}>
+        
+                <Text style={styles.temperature}>My 75</Text>
+                <Text style={styles.condition}>One day at a time</Text>
+
+                {/* Weather Icon */}
+                <Image
+                    source={require('../../assets/images/cut.gif')}
+                    style={styles.weatherIcon}
+                />
+
+                {/* Location */}
+                <View style={styles.locationContainer}>
+                    <Image
+                        source={require('../../assets/images/cut.gif')}
+                        style={styles.locationIcon}
+                    />
+                    <Text style={styles.locationText}>Day...</Text>
+                </View>
+            </SafeAreaView>
+        </SafeAreaProvider>
     );
-  }
-
-  return (
-    <Provider store={store}>
-      <View style={styles.container}>
-        {/* Motivational Header */}
-        <View style={styles.card}>
-          <Text style={styles.heading}>Hi Tia!</Text>
-          <Text style={styles.subHeading}>75 to go!</Text>
-          <Text style={styles.motivation}>
-            You’re doing amazing! Keep going, one day at a time. 💪
-          </Text>
-        </View>
-
-        {/* Panda Image */}
-        <Image
-          source={require('../../assets/images/cut.gif')}
-          style={styles.pandaImage}
-        />
-
-        {/* Navigation Button */}
-        <Link href="/about" style={styles.button}>
-          See your progress!
-        </Link>
-      </View>
-    </Provider>
-  );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFF5F7', // Soft pastel pink
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-  },
-  loadingContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFF5F7',
-  },
-  loadingText: {
-    marginTop: 10,
-    fontSize: 18,
-    fontFamily: 'CuteFont',
-    color: '#FFB6C1', // Soft pink
-  },
-  card: {
-    backgroundColor: '#FFFFFF', // White card
-    borderRadius: 20,
-    padding: 20,
-    alignItems: 'center',
-    marginBottom: 20,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-  },
-  heading: {
-    fontSize: 42,
-    fontFamily: 'CuteFont',
-    color: '#FF69B4', // Hot pink
-    marginBottom: 5,
-    textAlign: 'center',
-  },
-  subHeading: {
-    fontSize: 28,
-    fontFamily: 'CuteFont',
-    color: '#FF69B4',
-    marginBottom: 15,
-  },
-  motivation: {
-    fontSize: 20,
-    fontFamily: 'SpaceMono',
-    color: '#555', 
-    textAlign: 'center',
-    lineHeight: 28,
-  },
-  pandaImage: {
-    width: 220,
-    height: 220,
-    marginBottom: 20,
-    resizeMode: 'contain',
-  },
-  button: {
-    fontSize: 18,
-    fontFamily: 'CuteFont',
-    color: '#fff',
-    backgroundColor: '#FF69B4', 
-    paddingVertical: 14,
-    paddingHorizontal: 30,
-    borderRadius: 30,
-    textAlign: 'center',
-    shadowColor: '#FF69B4',
-    shadowOpacity: 0.4,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    letterSpacing: 1.2,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#DFF6F0', // Soft cyan
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#DFF6F0',
+    },
+    loadingText: {
+        fontSize: 10,
+        fontFamily: 'Arial',
+        color: '#555',
+    },
+    temperature: {
+        fontSize: 64,
+        fontFamily: 'CuteFont',
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 10,
+    },
+    condition: {
+        fontSize: 20,
+        fontFamily: 'Arial',
+        color: '#666',
+        marginBottom: 30,
+    },
+    weatherIcon: {
+        width: 120,
+        height: 120,
+        marginBottom: 30,
+        resizeMode: 'contain',
+    },
+    locationContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 20,
+    },
+    locationIcon: {
+        width: 20,
+        height: 20,
+        marginRight: 10,
+        resizeMode: 'contain',
+    },
+    locationText: {
+        fontSize: 18,
+        fontFamily: 'Arial',
+        color: '#444',
+    },
 });
+
+
